@@ -70,3 +70,65 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+
+
+@keyframes marquee {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 15s linear infinite;
+}
+
+
+@keyframes blob-animate {
+  0% {
+    transform: translate(-150%, -150%) rotate(0deg);
+    opacity: 1;
+  }
+  25% {
+    transform: translate(0%, 0%) rotate(90deg);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translate(150%, 0%) rotate(180deg);
+    opacity: 0.5;
+  }
+  75% {
+    transform: translate(0%, 150%) rotate(270deg);
+    opacity: 0;
+  }
+  100% {
+    transform: translate(-150%, 0%) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+
+/* Noisy Grainy Texture Overlay */
+.bg-noise {
+  background: linear-gradient(45deg, rgba(255, 255, 255, 0.1) 25%, rgba(0, 0, 0, 0.1) 50%, rgba(255, 255, 255, 0.1) 75%);
+  background-size: 150% 150%;
+  animation: noise 0.2s linear infinite;
+}
+
+@keyframes noise {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 100% 100%;
+  }
+}
+
+@layer utilities {
+  .bg-noise {
+    background-image: url("https://img.freepik.com/free-photo/noisy-background_1194-7547.jpg?t=st=1734110867~exp=1734114467~hmac=34868a6e704a27c71c805495b75514e5cdf46c12f1cbc88cbe9030939bc6a06c&w=740"); /* Noise texture pattern */
+  }
+}
